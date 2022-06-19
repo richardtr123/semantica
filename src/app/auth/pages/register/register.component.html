@@ -1,0 +1,67 @@
+<div class="wrapper">
+    <div class="body">
+        <img class="logo" src="../../../../assets/img/iniciar-sesion.png" alt="login">
+        <h1>Registrarse</h1>
+
+    <form   action="" 
+            (ngSubmit)="registrar()"
+            [formGroup]="registerUser"
+            autocomplete="off">
+        <div class="form-floating mb-3">
+
+            <input type="email" 
+                    class="form-control" 
+                    id="floatingInput"
+                    formControlName ="email"
+                    [(ngModel)]="usuario.email"
+                    placeholder="name@example.com">
+            <label for="floatingInput">Email</label>
+            
+            <span class="form-text text-danger"
+                    *ngIf="campoesValido('email')">
+                    Debe ser de 3 letras
+            </span>
+
+            
+          </div>
+          <div class="form-floating mb-3">
+            <input type="password" 
+                    class="form-control" 
+                    id="floatingPassword" 
+                    formControlName ="password"
+                    [(ngModel)]="usuario.password"
+                    placeholder="Password">
+            <label for="floatingPassword">Password</label>
+            <span class="form-text text-danger"
+                    *ngIf="campoesValido('password')">
+                    Debe ser mas de 5 caracteres
+            </span>
+          </div>
+
+          <div class="form-floating mb-3">
+            <input type="password" 
+                    class="form-control" 
+                    id="floatingPassword"
+                    formControlName ="repeatpassword" 
+                    [(ngModel)]="usuario.repassword"
+                    placeholder="Repetir Password">
+            <label for="floatingPassword">Repetir Password</label>
+            <span class="form-text text-danger"
+                    *ngIf="campoesValido('repeatpassword')">
+                    Debe ser mas de 5 caracteres
+            </span>
+          </div>
+          
+          <div class="d-grid gap-2 mb-3">
+            <button class="btn btn-primary btn-lg" 
+                    [disabled]="registerUser.invalid"
+                    type="submit">Aceptar</button>
+          </div>
+          <a class="mt-3" routerLink="/auth/login">Volver</a>
+
+    </form>
+    </div>
+    
+</div>
+
+
